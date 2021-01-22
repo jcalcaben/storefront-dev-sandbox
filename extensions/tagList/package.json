@@ -1,0 +1,19 @@
+{
+  "name": "tagList",
+  "version": "1.0.0",
+  "description": "TagList component",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {},
+  "peerDependencies": {
+    "@apollo/react-hooks": "^4.0.0",
+    "@magento/venia-ui": "^5.0.0",
+    "graphql-tag": "^2.11.0",
+    "react": "^17.0.1"
+  },
+  "pwa-studio": {
+    "targets": {
+      "intercept": "src/targets/intercept"
+    }
+  }
+}
