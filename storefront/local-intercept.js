@@ -17,6 +17,29 @@
  * or modify functionality from its dependencies.
  */
 
-function localIntercept(targets) {}
+function localIntercept(targets) {
+    const { Targetables } = require('@magento/pwa-buildpack');
+
+    const targetables = Targetables.using(targets);
+
+    const ProductDetails = targetables.reactComponent(
+        '@magento/venia-ui/lib/components/ProductFullDetail/productFullDetail.js'
+    );
+
+    const TagList = ProductDetails.addImport("{TagList} from 'tagList'");
+
+    ProductDetails.insertAfterJSX(
+        '<RichText content={productDetails.description} />',
+        `<${TagList} categoriesListData={productDetails.categoriesListData} />`
+    );
+    const useProductFullDetails = targetables.esModule(
+        '@magento/peregrine/lib/talons/ProductFullDetail/useProductFullDetail.js'
+    );
+
+    useProductFullDetails.wrapWithFile(
+        'useProductFullDetail',
+        'tagList/src/targets/wrapper'
+    );
+}
 
 module.exports = localIntercept;
