@@ -1,0 +1,14 @@
+{
+  "name": "social-links-extension",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "pwa-studio": {
+    "targets": {
+      "intercept": "intercept"
+    }
+  },
+  "peerDependencies": {
+    "social-links": "file:../social-links"
+  }
+}

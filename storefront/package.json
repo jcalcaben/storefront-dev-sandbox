@@ -105,6 +105,7 @@
     "redux-thunk": "~2.3.0",
     "rimraf": "~2.6.3",
     "social-links": "file:../extensions/social-links",
+    "social-links-extension": "file:../extensions/social-links-extension",
     "style-loader": "~0.23.1",
     "terser-webpack-plugin": "~1.2.3",
     "uuid": "~3.3.2",
