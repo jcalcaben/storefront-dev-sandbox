@@ -28,6 +28,9 @@
   "browser": {
     "@magento/venia-drivers": "src/drivers"
   },
+  "depdendencies": {
+    "@magento/pwa-buildpack": "8.0.0-beta.2"
+  },
   "devDependencies": {
     "@adobe/apollo-link-mutation-queue": "~1.0.2",
     "@apollo/client": "~3.1.2",
@@ -41,7 +44,6 @@
     "@babel/preset-env": "~7.3.4",
     "@babel/runtime": "~7.4.2",
     "@magento/babel-preset-peregrine": "~1.1.0",
-    "@magento/pwa-buildpack": "8.0.0-beta.1",
     "@magento/eslint-config": "~1.5.0",
     "@magento/pagebuilder": "4.0.0-beta.1",
     "@magento/peregrine": "9.0.0-beta.1",
