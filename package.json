@@ -6,7 +6,7 @@
   "private": true,
   "workspaces": ["storefront"],
   "scripts": {
-    "dev": "cp ./sandbox.env storefront/.env && yarn develop",
+    "dev": "cp ./sandbox.env storefront/.env && yarn watch",
     "watch": "yarn --cwd storefront watch"
   }
 }
