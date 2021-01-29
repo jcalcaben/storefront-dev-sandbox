@@ -1,4 +1,3 @@
 {
-    "template": "node",
-    "startScript": "develop:codesandbox"
+    "template": "node"
 }
