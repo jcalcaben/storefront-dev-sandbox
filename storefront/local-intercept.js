@@ -17,6 +17,30 @@
  * or modify functionality from its dependencies.
  */
 
-function localIntercept(targets) {}
+const { Targetables } = require('@magento/pwa-buildpack');
+
+function localIntercept(targets) {
+    const targetables = Targetables.using(targets);
+
+    // Add social links data
+    targets.of('social-links').socialLinks.tap(api => {
+        api.addLink('Twitter', 'https://twitter.com/')
+        api.addLink('Instagram', 'https://www.instagram.com/')
+    })
+
+    // Add social links component to Footer
+    const Footer = targetables.reactComponent(
+        '@magento/venia-ui/lib/components/Footer/footer.js'
+    );
+
+    // Add import
+    const SocialLinks = Footer.addImport('SocialLinks from "social-links"');
+    const socialLinksProps = 'styles={{ root: classes.socialLinks }}';
+
+    Footer.replaceJSX(
+        'ul className={classes.socialLinks}',
+        `<${SocialLinks} ${socialLinksProps} />`
+    );
+}
 
 module.exports = localIntercept;

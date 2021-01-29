@@ -1,0 +1,16 @@
+{
+  "name": "social-links",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "pwa-studio": {
+    "targets": {
+      "intercept": "src/targets/intercept",
+      "declare": "src/targets/declare"
+    }
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-feather": "^2.0.9"
+  }
+}
