@@ -6,6 +6,7 @@
   "private": true,
   "workspaces": ["storefront", "extensions/social-links", "extensions/social-links-extension"],
   "scripts": {
-    "develop": "yarn --cwd storefront watch"
+    "develop": "cp ./sandbox.env storefront/.env && yarn watch",
+    "watch": "yarn --cwd storefront watch"
   }
 }
