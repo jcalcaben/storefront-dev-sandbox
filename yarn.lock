@@ -1615,19 +1615,19 @@
   resolved "https://registry.yarnpkg.com/@magento/eslint-config/-/eslint-config-1.5.2.tgz#24083d869afd124a414ae8a15401e0a6e44a99a6"
   integrity sha512-iN5Ic0JQe549ycijZNyNRu3JHajGVrBPX3a5yy4zAjdF9gE8z6jCVQOUP3WGuff4bEJfJgs/VODSIPuEU4NjBg==
 
-"@magento/pagebuilder@4.0.1":
+"@magento/pagebuilder@~4.0.1":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@magento/pagebuilder/-/pagebuilder-4.0.1.tgz#682219d907eb5fda6a44239aad8df4ed62f1cefd"
   integrity sha512-p1od6a803XxzVkU4fYO2ZZQlcJoDx3ezhTN0eBGxnna4uAgSlFRCOw4fQhQ5qGEgXvvs2UlM3UMYj+A+S/1Tgg==
 
-"@magento/peregrine@9.0.0":
+"@magento/peregrine@~9.0.0":
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/@magento/peregrine/-/peregrine-9.0.0.tgz#98f94810a215e44ef6f8e5e40e7f76e11a53d06d"
   integrity sha512-RKrCLC9wlqznzoehVSSwH1qav0ZL11yw1hSKi9dLZMUtGV97olTI/xn7aZbWZUunadzscf0vJAQnWFaJFtNUwg==
   dependencies:
     fast-glob "~3.2.4"
 
-"@magento/pwa-buildpack@8.0.1":
+"@magento/pwa-buildpack@~8.0.1":
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/@magento/pwa-buildpack/-/pwa-buildpack-8.0.1.tgz#deb48b53562f3251e9c23dce5dc5cc15c02ccbae"
   integrity sha512-ROOyWWvdFT0OJlUpn3Pf1+oNrx2M8I/MzNF8IwHQhOz8XTtQjVhFMW4TYPLWC3rNdJrkLQZce8wbsLlECjOYvg==
@@ -1695,19 +1695,19 @@
     morgan "~1.9.1"
     node-fetch "~2.3.0"
 
-"@magento/upward-security-headers@1.0.2":
+"@magento/upward-security-headers@~1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@magento/upward-security-headers/-/upward-security-headers-1.0.2.tgz#e725e8968958d2a5128d4374a42f015cd39b3b41"
   integrity sha512-ll8kHHG05mBvPclsripMxu0oW/Ipqh+jcF3AmUOeVrWaXvqimQEZF0Eh7INbsOJr2wTArq3L9NmPWUbI9CgRow==
 
-"@magento/venia-adobe-data-layer@0.0.1":
+"@magento/venia-adobe-data-layer@~0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@magento/venia-adobe-data-layer/-/venia-adobe-data-layer-0.0.1.tgz#71e4dcd219cf51e4ebb3fb77a0bdfa1bec60f5c4"
   integrity sha512-TwaJosch1+7EHyPl+ulxXkpoljLZ5wWiLQ6UoIabk79GQpEW19lCEy4w6X9/WDrXIYCbRHmO6qz22N1O82JBjg==
   dependencies:
     "@adobe/adobe-client-data-layer" "~1.1.3"
 
-"@magento/venia-ui@6.0.1":
+"@magento/venia-ui@~6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@magento/venia-ui/-/venia-ui-6.0.1.tgz#c20fb2066210b58aa4349f40818cf7e3e3131aa0"
   integrity sha512-1C2CiU48TsXCXDjHUG6Gt6NKyoEFqdqIKeX8M74VRvJO4vcroEMbhB5AHFKylpKHdH1FY8NpoX1enP45lx+bnw==
