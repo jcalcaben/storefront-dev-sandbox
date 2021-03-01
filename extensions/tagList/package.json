@@ -1,0 +1,7 @@
+{
+  "name": "tagList",
+  "version": "1.0.0",
+  "description": "A tag list extension for a PWA Studio storefront",
+  "main": "index.js",
+  "license": "MIT"
+}
