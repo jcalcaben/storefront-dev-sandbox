@@ -16,7 +16,14 @@
  * with many customizations, this function would tap those targets and add
  * or modify functionality from its dependencies.
  */
+ const { Targetables } = require('@magento/pwa-buildpack')
 
-function localIntercept(targets) {}
+const { install:installModifyCore } = require('modify-core');
+
+function localIntercept(targets) {
+    const targetables = Targetables.using(targets);
+
+    installModifyCore(targetables);
+}
 
 module.exports = localIntercept;

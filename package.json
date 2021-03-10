@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "workspaces": ["storefront"],
+  "workspaces": ["storefront","extensions/modify-core"],
   "scripts": {
     "develop": "cp ./sandbox.env storefront/.env && yarn watch",
     "watch": "yarn --cwd storefront watch"
