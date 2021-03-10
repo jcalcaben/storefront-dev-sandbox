@@ -80,7 +80,7 @@ module.exports = async env => {
         }),
         new CopyPlugin({
             patterns: [
-              { from: "my-static-assets", to: "venia-static" },
+              { from: "my-static-assets", to: "my-static-assets" },
             ],
           }),
     ];
