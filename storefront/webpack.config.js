@@ -9,6 +9,7 @@ const {
 } = require('@magento/pwa-buildpack');
 const { DefinePlugin } = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = async env => {
     /**
@@ -76,7 +77,12 @@ module.exports = async env => {
                 collapseWhitespace: true,
                 removeComments: true
             }
-        })
+        }),
+        new CopyPlugin({
+            patterns: [
+              { from: "my-static-assets", to: "venia-static" },
+            ],
+          }),
     ];
 
     return config;
