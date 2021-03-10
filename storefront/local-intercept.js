@@ -17,6 +17,11 @@
  * or modify functionality from its dependencies.
  */
 
-function localIntercept(targets) {}
+function localIntercept(targets) {
+    targets.of('@magento/pwa-buildpack').transformUpward.tap(def => {
+        def.staticFromRoot.inline.body.file.template.inline =
+            './my-static-assets/{{ filename }}';
+    });
+}
 
 module.exports = localIntercept;
