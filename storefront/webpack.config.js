@@ -9,6 +9,7 @@ const {
 } = require('@magento/pwa-buildpack');
 const { DefinePlugin } = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = async env => {
     /**
@@ -63,7 +64,7 @@ module.exports = async env => {
              * the globals object in jest.config.js.
              */
             POSSIBLE_TYPES: JSON.stringify(possibleTypes),
-            STORE_NAME: JSON.stringify('Venia'),
+            STORE_NAME: JSON.stringify('My Store'),
             STORE_VIEW_CODE: process.env.STORE_VIEW_CODE
                 ? JSON.stringify(process.env.STORE_VIEW_CODE)
                 : JSON.stringify(storeConfigData.code),
@@ -76,6 +77,9 @@ module.exports = async env => {
                 collapseWhitespace: true,
                 removeComments: true
             }
+        }),
+        new CopyPlugin({
+            patterns: [{ from: 'static', to: 'venia-static' }]
         })
     ];
 

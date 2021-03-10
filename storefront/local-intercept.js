@@ -39,7 +39,7 @@ function localIntercept(targets) {
         '<RichText content={productDetails.description} />',
         `<${TagList} categoriesListData={productDetails.categoriesListData} />`
     );
-    
+
     // Create an ES Module targetable linked to the useProductFullDetail.js file
     const useProductFullDetails = targetables.esModule(
         '@magento/peregrine/lib/talons/ProductFullDetail/useProductFullDetail.js'
@@ -50,6 +50,12 @@ function localIntercept(targets) {
         'useProductFullDetail',
         'tagList/src/targets/wrapper'
     );
+
+    targets.of('@magento/pwa-buildpack').transformUpward.tap(def => {
+        def.veniaStaticIncludes.directory.inline = './static';
+        def.staticFromRoot.inline.body.file.template.inline =
+            './static/{{ filename }}';
+    });
 }
 
 module.exports = localIntercept;
