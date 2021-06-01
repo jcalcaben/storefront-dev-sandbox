@@ -1598,7 +1598,7 @@
     request-promise "^4.1.1"
     yargs "^8.0.2"
 
-"@magento/babel-preset-peregrine@~1.1.0":
+"@magento/babel-preset-peregrine@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@magento/babel-preset-peregrine/-/babel-preset-peregrine-1.1.0.tgz#bb89b548562c38cf88b1728b19d91afff0dbd7e1"
   integrity sha512-U+y0gUpeAUJyV1xKtWnRNDFYluhvdwuB/UQlLKuJyab/XZqwmDQ4znwACQdhHEOYbuJHVwXP4glRu0to80jQng==
@@ -1610,31 +1610,32 @@
   dependencies:
     es-comments "^1.0.1"
 
-"@magento/eslint-config@~1.5.0":
+"@magento/eslint-config@^1.5.2":
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@magento/eslint-config/-/eslint-config-1.5.2.tgz#24083d869afd124a414ae8a15401e0a6e44a99a6"
   integrity sha512-iN5Ic0JQe549ycijZNyNRu3JHajGVrBPX3a5yy4zAjdF9gE8z6jCVQOUP3WGuff4bEJfJgs/VODSIPuEU4NjBg==
 
-"@magento/pagebuilder@~4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@magento/pagebuilder/-/pagebuilder-4.0.1.tgz#682219d907eb5fda6a44239aad8df4ed62f1cefd"
-  integrity sha512-p1od6a803XxzVkU4fYO2ZZQlcJoDx3ezhTN0eBGxnna4uAgSlFRCOw4fQhQ5qGEgXvvs2UlM3UMYj+A+S/1Tgg==
+"@magento/pagebuilder@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@magento/pagebuilder/-/pagebuilder-5.0.0.tgz#e20feb40fe341e92cf978ccd4409381e474a3cc4"
+  integrity sha512-bfylUQmVVvErzU8kgVnjWioCy6PFJzM9//rPIjVNZGlTGXVFjWk6XU1yXuFwNLvNRAkAqPj8Mj9kYeugDQdJQw==
 
-"@magento/peregrine@~9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@magento/peregrine/-/peregrine-9.0.0.tgz#98f94810a215e44ef6f8e5e40e7f76e11a53d06d"
-  integrity sha512-RKrCLC9wlqznzoehVSSwH1qav0ZL11yw1hSKi9dLZMUtGV97olTI/xn7aZbWZUunadzscf0vJAQnWFaJFtNUwg==
+"@magento/peregrine@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@magento/peregrine/-/peregrine-10.0.0.tgz#bea3747a6b4c2442a7d04c46a1e38f2842797a21"
+  integrity sha512-xFrIwxfkYs825KlqYWxPN8RBk5ICrhO5drxt897o+SnZUpzEhrst/Wm8Ywi5FwialEMlqIib9rAJu7IZc240ew==
   dependencies:
     fast-glob "~3.2.4"
 
-"@magento/pwa-buildpack@~8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@magento/pwa-buildpack/-/pwa-buildpack-8.0.1.tgz#deb48b53562f3251e9c23dce5dc5cc15c02ccbae"
-  integrity sha512-ROOyWWvdFT0OJlUpn3Pf1+oNrx2M8I/MzNF8IwHQhOz8XTtQjVhFMW4TYPLWC3rNdJrkLQZce8wbsLlECjOYvg==
+"@magento/pwa-buildpack@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@magento/pwa-buildpack/-/pwa-buildpack-9.0.0.tgz#bcc6dca62327713b89fbfd7f09ba77e1da723fad"
+  integrity sha512-g+dMdKvgIZ1kmGe1nN8bR6Ed73yMIqRTfIqO0iGyyJOdtFPdpUKLw65tX2gi3h6OXIhI0Uj5R1FjUrAzS9AFqw==
   dependencies:
     "@magento/directive-parser" "~0.1.7"
-    "@magento/upward-js" "~5.0.1"
+    "@magento/upward-js" "~5.1.0"
     "@pmmmwh/react-refresh-webpack-plugin" "~0.4.1"
+    "@yarnpkg/lockfile" "~1.1.0"
     apicache "~1.4.0"
     boxen "~3.0.0"
     camelspace "~1.0.0"
@@ -1675,10 +1676,10 @@
     write-file-webpack-plugin "~4.5.0"
     yargs "~13.2.2"
 
-"@magento/upward-js@~5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@magento/upward-js/-/upward-js-5.0.1.tgz#dd290e62bf77b4b6bd35aa3cff4a5b837307889f"
-  integrity sha512-nUGwA+RjuDh6Q2jonYJGPT2sgli97qNFIGDR9UjhTLO4LdwL8WjEmdypz5H93YO7D/SQ0b2ryLwXk/AzOFWRKg==
+"@magento/upward-js@~5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@magento/upward-js/-/upward-js-5.1.0.tgz#a2aac62887fa18a83abf5af473fdf51f87ed7c66"
+  integrity sha512-rfm+0tuYC+HUFtk9IjptoqUHsLYUTkXbA7EINgx5rlUVobvQDRdpqNrhbrXdApykI4BvEueQ7Yv8jq5Pxl1Yyw==
   dependencies:
     "@apollo/client" "~3.1.2"
     camelspace "~1.0.0"
@@ -1695,24 +1696,24 @@
     morgan "~1.9.1"
     node-fetch "~2.3.0"
 
-"@magento/upward-security-headers@~1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@magento/upward-security-headers/-/upward-security-headers-1.0.2.tgz#e725e8968958d2a5128d4374a42f015cd39b3b41"
-  integrity sha512-ll8kHHG05mBvPclsripMxu0oW/Ipqh+jcF3AmUOeVrWaXvqimQEZF0Eh7INbsOJr2wTArq3L9NmPWUbI9CgRow==
+"@magento/upward-security-headers@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@magento/upward-security-headers/-/upward-security-headers-1.0.3.tgz#2d9f6fd251d560da213f091848a6c657e1d4bc25"
+  integrity sha512-hX/RRhnQ9FEhsHBgRi0QWvDS2KShGwv6E5D8okDRNK51pIng92vwaqla4rXjGf7Cw0kRyB8lxGr8mycSmwpSiQ==
 
-"@magento/venia-adobe-data-layer@~0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@magento/venia-adobe-data-layer/-/venia-adobe-data-layer-0.0.1.tgz#71e4dcd219cf51e4ebb3fb77a0bdfa1bec60f5c4"
-  integrity sha512-TwaJosch1+7EHyPl+ulxXkpoljLZ5wWiLQ6UoIabk79GQpEW19lCEy4w6X9/WDrXIYCbRHmO6qz22N1O82JBjg==
+"@magento/venia-adobe-data-layer@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@magento/venia-adobe-data-layer/-/venia-adobe-data-layer-1.0.0.tgz#1d6d447525cb33b44330de67473a20c64084eb7e"
+  integrity sha512-z6FOaDrCBO2pyDdl7GmGIyaRnitzJ7PhLzhsF32SpfKkrWI9lRyBcBjhA117n4V6ylNOaX5unxDArMbV+UGvVw==
   dependencies:
     "@adobe/adobe-client-data-layer" "~1.1.3"
 
-"@magento/venia-ui@~6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@magento/venia-ui/-/venia-ui-6.0.1.tgz#c20fb2066210b58aa4349f40818cf7e3e3131aa0"
-  integrity sha512-1C2CiU48TsXCXDjHUG6Gt6NKyoEFqdqIKeX8M74VRvJO4vcroEMbhB5AHFKylpKHdH1FY8NpoX1enP45lx+bnw==
+"@magento/venia-ui@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@magento/venia-ui/-/venia-ui-7.0.0.tgz#ea2c0f23983c1cad0df7d9dcabb9d4c7dcbfde51"
+  integrity sha512-ZCt2KgtT9zSmCwalggFZ+0wJlaN9bvpMnPXQdtXhJuY9gcGHnGWEN6W4/brm0F2jJLRZ4ItpTSEEKYClLkiEWw==
   dependencies:
-    informed "~2.11.17"
+    informed "~3.27.0"
     jarallax "~1.11.1"
     load-google-maps-api "~2.0.1"
     lodash.escape "~4.0.1"
@@ -2786,6 +2787,11 @@
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
+
+"@yarnpkg/lockfile@~1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
+  integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
 abab@^2.0.3:
   version "2.0.5"
@@ -8328,6 +8334,11 @@ informed@~2.11.17:
   integrity sha512-dB7kVcq89qXccc+0ZWQuk+gZVj9xbHvYGa5t+Ktqf0cBxv+1AIKdh9mnDqkcGF/rjjW3jB/x9JfJWj0SqD0BAg==
   dependencies:
     lodash "^4.17.11"
+
+informed@~3.27.0:
+  version "3.27.0"
+  resolved "https://registry.yarnpkg.com/informed/-/informed-3.27.0.tgz#ecf17b11f978bd28907018ca958fab85c2e780ef"
+  integrity sha512-GVlNvtDtZSrObdluWOWelyrLnC0WY2YGBHY5/fxA6XiA4yfFcdXD/NOlvLFQpWQxr15pEKXLN/ypjGeshtxcpg==
 
 inherits@2, inherits@2.0.4, inherits@^2.0.1, inherits@^2.0.3, inherits@^2.0.4, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.4"
