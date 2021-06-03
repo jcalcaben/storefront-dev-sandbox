@@ -9,7 +9,7 @@ const {
 } = require('@magento/pwa-buildpack');
 const { DefinePlugin } = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
+// const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = async env => {
     /**
@@ -90,11 +90,14 @@ module.exports = async env => {
                 removeComments: true
             }
         }),
+        /**
+         * This is an alternative way of copying over a static assets directory into 'dist'
+         */
+        /*
         new CopyPlugin({
-            patterns: [
-              { from: "my-static-assets", to: "my-static-assets" },
-            ],
-          }),
+            patterns: [{ from: 'my-static-assets', to: 'my-static-assets' }]
+        })
+        */
     ];
 
     return config;

@@ -17,3 +17,11 @@
 status: veniaResponse.status
 headers: veniaResponse.headers
 body: veniaResponse.body
+
+# Tells Webpack to copy over this static assets directory from the
+# project root into 'dist'.
+myStaticIncludes:
+    resolver: directory
+    directory:
+        resolver: inline
+        inline: './my-static-assets'
