@@ -1,11 +1,14 @@
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { CacheFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
-
-import { PREFETCH_IMAGES } from '@magento/venia-ui/lib/constants/swMessageTypes';
+import { MESSAGE_TYPES } from '@magento/peregrine/lib/util/swUtils';
 
 import { isFastNetwork } from './networkUtils';
-import { THIRTY_DAYS, IMAGES_CACHE_NAME } from '../defaults';
+import {
+    THIRTY_DAYS,
+    IMAGES_CACHE_NAME,
+    MAX_NUM_OF_IMAGES_TO_CACHE
+} from '../defaults';
 import { registerMessageHandler } from './messageHandler';
 
 const imageRegex = new RegExp(/\.(?:png|jpg|jpeg)$/);
@@ -149,7 +152,10 @@ const handleImagePreFetchRequest = (payload, event) => {
  * 1. PREFETCH_IMAGES
  */
 export const registerImagePreFetchHandler = () => {
-    registerMessageHandler(PREFETCH_IMAGES, handleImagePreFetchRequest);
+    registerMessageHandler(
+        MESSAGE_TYPES.PREFETCH_IMAGES,
+        handleImagePreFetchRequest
+    );
 };
 
 /**
@@ -161,8 +167,11 @@ export const createImageCacheHandler = () =>
         cacheName: IMAGES_CACHE_NAME,
         plugins: [
             new ExpirationPlugin({
-                maxEntries: 60,
-                maxAgeSeconds: THIRTY_DAYS
+                maxEntries: MAX_NUM_OF_IMAGES_TO_CACHE,
+                maxAgeSeconds: THIRTY_DAYS,
+                matchOptions: {
+                    ignoreVary: true
+                }
             }),
             new CacheableResponsePlugin({
                 statuses: [0, 200]

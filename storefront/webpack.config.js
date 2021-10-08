@@ -1,14 +1,30 @@
-const {
-    configureWebpack,
-    graphQL: {
-        getMediaURL,
-        getStoreConfigData,
-        getAvailableStoresConfigData,
-        getPossibleTypes
-    }
-} = require('@magento/pwa-buildpack');
-const { DefinePlugin } = require('webpack');
+const { configureWebpack, graphQL } = require('@magento/pwa-buildpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const fs = require('fs');
+
+const {
+    getMediaURL,
+    getStoreConfigData,
+    getAvailableStoresConfigData,
+    getPossibleTypes
+} = graphQL;
+
+const { DefinePlugin } = webpack;
+const { LimitChunkCountPlugin } = webpack.optimize;
+
+const getCleanTemplate = templateFile => {
+    return new Promise(resolve => {
+        fs.readFile(templateFile, 'utf8', (err, data) => {
+            resolve(
+                data.replace(
+                    /(?<inlineddata><!-- Inlined Data -->.*\s<!-- \/Inlined Data -->)/gs,
+                    ''
+                )
+            );
+        });
+    });
+};
 
 module.exports = async env => {
     /**
@@ -45,11 +61,40 @@ module.exports = async env => {
     const storeConfigData = await getStoreConfigData();
     const { availableStores } = await getAvailableStoresConfigData();
 
+    /**
+     * Loop the available stores when there is provided STORE_VIEW_CODE
+     * in the .env file, because should set the store name from the
+     * given store code instead of the default one.
+     */
+    const availableStore = availableStores.find(
+        ({ code }) => code === process.env.STORE_VIEW_CODE
+    );
+
     global.MAGENTO_MEDIA_BACKEND_URL = mediaUrl;
     global.LOCALE = storeConfigData.locale.replace('_', '-');
     global.AVAILABLE_STORE_VIEWS = availableStores;
 
     const possibleTypes = await getPossibleTypes();
+
+    const htmlWebpackConfig = {
+        filename: 'index.html',
+        minify: {
+            collapseWhitespace: true,
+            removeComments: true
+        }
+    };
+
+    // Strip UPWARD mustache from template file during watch
+    if (
+        process.env.npm_lifecycle_event &&
+        process.env.npm_lifecycle_event.includes('watch')
+    ) {
+        htmlWebpackConfig.templateContent = await getCleanTemplate(
+            './template.html'
+        );
+    } else {
+        htmlWebpackConfig.template = './template.html';
+    }
 
     config.module.noParse = [
         /@adobe\/adobe\-client\-data\-layer/,
@@ -63,21 +108,73 @@ module.exports = async env => {
              * the globals object in jest.config.js.
              */
             POSSIBLE_TYPES: JSON.stringify(possibleTypes),
-            STORE_NAME: JSON.stringify('Venia'),
+            STORE_NAME: availableStore
+                ? JSON.stringify(availableStore.store_name)
+                : JSON.stringify(storeConfigData.store_name),
             STORE_VIEW_CODE: process.env.STORE_VIEW_CODE
                 ? JSON.stringify(process.env.STORE_VIEW_CODE)
                 : JSON.stringify(storeConfigData.code),
-            AVAILABLE_STORE_VIEWS: JSON.stringify(availableStores)
+            AVAILABLE_STORE_VIEWS: JSON.stringify(availableStores),
+            DEFAULT_LOCALE: JSON.stringify(global.LOCALE),
+            DEFAULT_COUNTRY_CODE: JSON.stringify(
+                process.env.DEFAULT_COUNTRY_CODE || 'US'
+            )
         }),
-        new HTMLWebpackPlugin({
-            filename: 'index.html',
-            template: './template.html',
-            minify: {
-                collapseWhitespace: true,
-                removeComments: true
-            }
-        })
+        new HTMLWebpackPlugin(htmlWebpackConfig)
     ];
 
-    return config;
+    const serverConfig = Object.assign({}, config, {
+        target: 'node',
+        devtool: false,
+        module: { ...config.module },
+        name: 'server-config',
+        output: {
+            ...config.output,
+            filename: '[name].[hash].SERVER.js',
+            strictModuleExceptionHandling: true
+        },
+        optimization: {
+            minimize: false
+        },
+        plugins: [...config.plugins]
+    });
+
+    // TODO: get LocalizationPlugin working in Node
+    const browserPlugins = new Set()
+        .add('HtmlWebpackPlugin')
+        .add('LocalizationPlugin')
+        .add('ServiceWorkerPlugin')
+        .add('VirtualModulesPlugin')
+        .add('WebpackAssetsManifest');
+
+    // remove browser-only plugins
+    serverConfig.plugins = serverConfig.plugins.filter(
+        plugin => !browserPlugins.has(plugin.constructor.name)
+    );
+
+    // remove browser-only module rules
+    serverConfig.module.rules = serverConfig.module.rules.map(rule => {
+        if (`${rule.test}` === '/\\.css$/') {
+            return {
+                ...rule,
+                oneOf: rule.oneOf.map(ruleConfig => ({
+                    ...ruleConfig,
+                    use: ruleConfig.use.filter(
+                        loaderConfig => loaderConfig.loader !== 'style-loader'
+                    )
+                }))
+            };
+        }
+
+        return rule;
+    });
+
+    // add LimitChunkCountPlugin to avoid code splitting
+    serverConfig.plugins.push(
+        new LimitChunkCountPlugin({
+            maxChunks: 1
+        })
+    );
+
+    return [config, serverConfig];
 };

@@ -1,11 +1,11 @@
 import {
     VALID_SERVICE_WORKER_ENVIRONMENT,
     handleMessageFromSW
-} from '@magento/venia-ui/lib/util/swUtils';
+} from '@magento/peregrine/lib/util/swUtils';
 
 export const registerSW = () => {
-    if (VALID_SERVICE_WORKER_ENVIRONMENT) {
-        navigator.serviceWorker
+    if (VALID_SERVICE_WORKER_ENVIRONMENT && globalThis.navigator) {
+        window.navigator.serviceWorker
             .register('/sw.js')
             .then(() => {
                 console.log('SW Registered');
